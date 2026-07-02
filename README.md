@@ -15,7 +15,7 @@ human collaborators can actually rely on.
 
 AI coding assistants (Claude Code, and agentic coding tools generally) burn most of their context
 window re-discovering your codebase: the layer structure, the singletons, the unit conventions, the
-quirks. A good `CLAUDE.md` helps, but it goes stale — and stale documentation is worse than none,
+quirks. A good `CLAUDE.md` helps, but it goes stale, and stale documentation is worse than none,
 because an agent will confidently act on it.
 
 docs-system solves both halves of the problem:
