@@ -20,7 +20,7 @@ Extracted from the system developed on The M.P.D. project.
 ## Install (once, works in every project)
 
 ```bash
-claude plugin marketplace add <this-repo-url-or-local-path>
+claude plugin marketplace add kc01-8/docs-system
 claude plugin install docs-system@docs-system
 ```
 
