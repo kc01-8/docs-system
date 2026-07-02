@@ -11,6 +11,16 @@ hard rules — into any repository with a single command, then keeps it honest w
 Install once at user level → run `/docs-init` in any project → get documentation that AI agents and
 human collaborators can actually rely on.
 
+## Installation
+
+```bash
+claude plugin marketplace add kc01-8/docs-system
+claude plugin install docs-system@docs-system
+```
+
+Or from inside Claude Code: `/plugin` → browse → install `docs-system`. Installed at user scope, it
+works in every repository on your machine.
+
 ## Why agent-readable docs?
 
 AI coding assistants (Claude Code, and agentic coding tools generally) burn most of their context
@@ -37,16 +47,6 @@ docs-system solves both halves of the problem:
 | `DOCS/CHANGELOG.md` | both | Newest-first, capped at 500 lines with mandatory archival (move, never delete) |
 | `DOCS/ROADMAP.md` | both | Planned work with a **claim convention** (Owner + branch, committed first) so collaborators never duplicate effort |
 | `DOCS/archive/` | both | Original design briefs + archived changelog chunks — history preserved forever |
-
-## Installation
-
-```bash
-claude plugin marketplace add kc01-8/docs-system
-claude plugin install docs-system@docs-system
-```
-
-Or from inside Claude Code: `/plugin` → browse → install `docs-system`. Installed at user scope, it
-works in every repository on your machine.
 
 ## Usage — three slash commands
 
