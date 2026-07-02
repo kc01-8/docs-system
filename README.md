@@ -53,6 +53,7 @@ docs-system solves both halves of the problem:
 | Command | What it does |
 |---------|--------------|
 | `/docs-init` | Scaffold `DOCS/` + `CLAUDE.md` in the current repo. Analyzes the codebase to fill ARCHITECTURE and MODULE_MAP truthfully; marks what it can't know as `TODO(human)`. Safe on existing repos — merges, never clobbers. |
+| `/docs-init --local` | Same, but the generated docs are **gitignored** — private, per-machine documentation for repos whose upstream shouldn't carry agent docs. Off by default; collaborators and CI won't see the docs. |
 | `/docs-check` | Staleness audit: MODULE_MAP vs actual public symbols, CHANGELOG vs recent git history, roadmap claim hygiene, CLAUDE.md drift. Reports findings; fixes only when asked. |
 | `/docs-archive` | When the changelog passes 500 lines, cut the oldest entries into `DOCS/archive/CHANGELOG-archive-NN.md` as a standalone commit. |
 

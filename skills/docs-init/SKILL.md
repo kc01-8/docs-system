@@ -1,6 +1,6 @@
 ---
 name: docs-init
-description: Install the living-docs system into the current repo — scaffold DOCS/ (ARCHITECTURE, MODULE_MAP, USER_MANUAL, CHANGELOG, ROADMAP, archive/) from templates, fill the agent docs by analyzing the codebase, and create/extend CLAUDE.md with project-specific hard rules. Use when setting up a new project or retrofitting the docs system onto an existing one.
+description: Install the living-docs system into the current repo — scaffold DOCS/ (ARCHITECTURE, MODULE_MAP, USER_MANUAL, CHANGELOG, ROADMAP, archive/) from templates, fill the agent docs by analyzing the codebase, and create/extend CLAUDE.md with project-specific hard rules. Use when setting up a new project or retrofitting the docs system onto an existing one. Supports --local to keep the generated docs gitignored (private, per-machine) instead of committed.
 ---
 
 # docs-init — install the docs system into this repo
@@ -15,10 +15,35 @@ in the templates are generation guidance — follow them, then delete them from 
 ones explicitly meant to survive, e.g. the "Older entries" pointer and format-hint comments in
 CHANGELOG/MODULE_MAP that say "update this in the same pass").
 
+## Modes
+
+**Normal (default):** the generated docs are committed and shared — the ROADMAP claim convention and
+"code change ⇒ doc change in the same commit" depend on collaborators seeing the doc diffs.
+
+**Local mode (`--local`, off by default):** the generated docs are added to `.gitignore` — private,
+per-machine docs for repos whose upstream shouldn't carry them. Use only when the user passes
+`--local` or explicitly asks for gitignored docs. Differences from normal mode:
+- After scaffolding, append to `.gitignore` (create it if missing):
+  ```gitignore
+  # docs-system local mode — generated docs stay untracked
+  /DOCS/
+  /CLAUDE.md
+  ```
+- **Guard:** `.gitignore` doesn't untrack already-tracked files. If `CLAUDE.md` or anything under
+  `DOCS/` is already tracked (`git ls-files`), leave those tracked, ignore only the new untracked
+  files, and tell the user about the split.
+- The ROADMAP claim convention assumes a shared committed file — in local mode, generate ROADMAP as
+  a personal worklist and say so in its header. Likewise soften "in the same commit" to "in the same
+  pass" wherever the generated docs state the maintenance contract (doc diffs never appear in commits).
+- The suggested commit in step 6 covers only the `.gitignore` change.
+- State the trade-off in your final report: collaborators, CI, and fresh clones will NOT see these
+  docs.
+
 ## Procedure
 
 ### 1. Pre-flight
 - Must be a git repo (if not, ask before `git init`).
+- Note which mode you're in (see Modes above); it changes steps 3, 5, and 6.
 - If `DOCS/` already exists, stop and ask: update-in-place (fill gaps, preserve their content) or
   abort. Never overwrite existing docs wholesale.
 - If `CLAUDE.md` exists, you will **merge into it** (step 5), not replace it.
