@@ -1,0 +1,13 @@
+{
+  "name": "docs-system",
+  "owner": {
+    "name": "kc"
+  },
+  "plugins": [
+    {
+      "name": "docs-system",
+      "source": "./",
+      "description": "Drop-in living-docs system: /docs-init scaffolds DOCS/ + CLAUDE.md for any project, /docs-check audits staleness, /docs-archive chunks the changelog."
+    }
+  ]
+}

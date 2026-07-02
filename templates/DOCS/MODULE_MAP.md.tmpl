@@ -1,0 +1,32 @@
+# {{PROJECT_NAME}} — Module Map (Agent Reference)
+
+> **Per-file public API** so you can work without reading every source file. Signatures are
+> abbreviated — read the source before calling anything with side effects. When you add/rename/remove
+> a public symbol or file, **update this map in the same pass** (see [README.md](README.md)).
+
+<!-- Format: one `##` section per top-level directory/layer, one `###` (or table row) per file.
+     For each file list: purpose (one line), public classes with key methods, key functions with
+     abbreviated signatures, important dataclasses/types, and config keys it reads. Keep entries
+     to a few lines each — this is a map, not a mirror of the source.
+
+     Example entry shape:
+
+     ## core/
+
+     ### core/example.py — one-line purpose
+     - `class ExampleEngine` — `.compute(jd: float, body: str) -> Result`; caches in SQLite.
+     - `top_level_fn(a, b, *, opt=None) -> list[Thing]` — what it does, one line.
+     - `@dataclass Result` — fields: `value, ts, flags`.
+     - Reads config: `[example] threshold, mode`.
+-->
+
+{{MODULE_MAP_BODY}}
+
+---
+
+## Extension points
+
+<!-- Where the project is designed to be extended without code changes (config-driven registries,
+     plugin hooks, entry-point tables). Delete if none. -->
+
+{{EXTENSION_POINTS}}

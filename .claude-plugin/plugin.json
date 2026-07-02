@@ -1,0 +1,8 @@
+{
+  "name": "docs-system",
+  "description": "Drop-in living-docs system for any repo: agent-oriented ARCHITECTURE + MODULE_MAP, human USER_MANUAL, capped CHANGELOG with archival, ROADMAP with a claim convention, and CLAUDE.md hard rules. Skills: /docs-init (scaffold + generate), /docs-check (staleness audit), /docs-archive (changelog chunking).",
+  "version": "0.1.0",
+  "author": {
+    "name": "kc"
+  }
+}

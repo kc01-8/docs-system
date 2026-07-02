@@ -1,0 +1,38 @@
+# CLAUDE.md — {{PROJECT_NAME}}
+
+Guidance for Claude Code (and humans) working in this repo. {{COLLABORATION_SENTENCE}}
+Read this, then the docs below, before changing code.
+
+## Read first
+All real documentation lives in **`DOCS/`** — keep it current as you work.
+- **`DOCS/README.md`** — doc index + maintenance rules.
+- **`DOCS/ARCHITECTURE.md`** *(agent)* — structure, hard rules, invariants, conventions, data flow,
+  storage, known quirks, build/run/test. **Start here.**
+- **`DOCS/MODULE_MAP.md`** *(agent)* — per-file public API; work without reading every source file.
+- **`DOCS/USER_MANUAL.md`** *(human)* — domain concepts and end-user behavior.
+- **`DOCS/CHANGELOG.md`** — what changed (newest first).
+- **`DOCS/ROADMAP.md`** — planned features + who is working on what (claim before you start).
+- **`DOCS/archive/`** — original design notes + archived changelog history.
+
+## Hard rules (see ARCHITECTURE.md for detail)
+<!-- 3–6 project-specific invariants, numbered, each one line + bold lead. These are the rules whose
+     violation causes real damage: dependency direction, singletons to import not re-create, unit/time
+     conventions, "don't hardcode what config covers", threading/async rules. Derive them from the
+     codebase — do not leave generic filler here. -->
+{{HARD_RULES}}
+
+## Build / run / test
+```bash
+{{BUILD_RUN_TEST_COMMANDS}}
+```
+Gitignored / per-machine (each clone recreates): {{PER_MACHINE_ITEMS}}
+
+## Working together
+- **Remote:** {{REMOTE_INFO}}
+- **Claim work in `DOCS/ROADMAP.md`** before starting an item (set Owner + branch, commit that first)
+  so collaborators see it. Prefer feature branches; pull before you push.
+- **Code change ⇒ doc change in the same commit:** new/renamed public symbol or file →
+  `MODULE_MAP.md`; new behavior/quirk/dependency → `ARCHITECTURE.md`; any of the above → a
+  `CHANGELOG.md` entry (newest first).
+- `.claude/settings.json` (shared) holds the agreed permission allowlist; put personal overrides in
+  `.claude/settings.local.json` (gitignored).

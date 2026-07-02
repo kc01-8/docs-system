@@ -1,0 +1,84 @@
+# {{PROJECT_NAME}} — Architecture (Agent Reference)
+
+> **Audience: AI agents / developers who need to work on this codebase without reading every file.**
+> Pair this with [MODULE_MAP.md](MODULE_MAP.md) (per-file API) and [USER_MANUAL.md](USER_MANUAL.md)
+> (domain concepts & end-user behavior). Keep this file current — see [README.md](README.md).
+
+---
+
+## 1. What it is
+
+<!-- 2–4 sentences: what the project is, what it's for, the one framing idea a newcomer needs.
+     Then bullet the load-bearing facts: runtime/language + version, entry point, online/offline,
+     determinism, anything that shapes every decision. -->
+
+{{WHAT_IT_IS}}
+
+---
+
+## 2. Layers / structure & the hard rules
+
+<!-- The dependency structure and the rules that must never be broken. If the project has layers,
+     draw the arrow diagram and state the direction rule in bold. If not layered, describe the
+     top-level structure and whatever boundary rules exist. Follow with a table:
+     | Layer/Dir | Responsibility | -->
+
+{{STRUCTURE_AND_RULES}}
+
+---
+
+## 3. Key invariants — singletons, shared state, things you import rather than re-create
+
+<!-- Objects/config with exactly one instance, module-level caches, global registries. For each:
+     how to get it, and what NOT to do (e.g. "never re-parse config elsewhere"). Delete the
+     section if there are none. -->
+
+{{INVARIANTS}}
+
+---
+
+## 4. Conventions
+
+<!-- Units, time handling, coordinate systems, ID formats, naming, error-handling style, i18n —
+     whatever an agent gets wrong by default in THIS codebase. Each convention: one bold rule +
+     one line of why/how. -->
+
+{{CONVENTIONS}}
+
+---
+
+## 5. Data flow
+
+<!-- Trace the main path(s) end to end: input → transformation → output. Name real modules and
+     functions so it doubles as a navigation aid. -->
+
+{{DATA_FLOW}}
+
+---
+
+## 6. Storage & external services
+
+<!-- Databases, files on disk, caches, network APIs. What lives where, what is gitignored /
+     per-machine, what is regenerable vs. precious. -->
+
+{{STORAGE}}
+
+---
+
+## 7. Known quirks
+
+<!-- The honest list: surprising behavior, footguns, stale-until-restart state, platform issues.
+     This section earns the doc its keep — never let it go stale. -->
+
+{{KNOWN_QUIRKS}}
+
+---
+
+## 8. Build / run / test
+
+```bash
+{{BUILD_RUN_TEST_COMMANDS}}
+```
+
+<!-- Include: environment setup, launch, the offline test gate(s) to run before pushing, and any
+     quick sanity sweep (compile/lint). Mirror this block in CLAUDE.md. -->

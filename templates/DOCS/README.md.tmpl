@@ -1,0 +1,44 @@
+# {{PROJECT_NAME}} — Documentation
+
+Central docs for {{PROJECT_NAME}} ({{ONE_LINE_DESCRIPTION}}). **Everything here must be kept up to
+date** — when you change behavior, APIs, files, or known issues, update the relevant doc in the same pass.
+
+## Start here
+
+| If you are… | Read |
+|-------------|------|
+| **An AI agent / dev orienting fast** | [ARCHITECTURE.md](ARCHITECTURE.md) → [MODULE_MAP.md](MODULE_MAP.md) |
+| Looking up a specific module's API | [MODULE_MAP.md](MODULE_MAP.md) |
+| Learning the domain / how to use it | [USER_MANUAL.md](USER_MANUAL.md) |
+| Checking what changed recently | [CHANGELOG.md](CHANGELOG.md) |
+| Planning work / seeing who's on what | [ROADMAP.md](ROADMAP.md) |
+| Curious about original design intent | [archive/](archive/) |
+
+## The files
+
+- **ARCHITECTURE.md** *(agent)* — layers, dependency rules, key invariants/singletons, conventions,
+  data flow, storage, known quirks, build/run/test. Read this before touching code.
+- **MODULE_MAP.md** *(agent)* — per-file public API (classes, key functions, signatures) so you can
+  work without reading every source file.
+- **USER_MANUAL.md** *(human)* — domain concepts and end-user behavior. Authoritative on *behavior
+  and domain*, not on code structure.
+- **CHANGELOG.md** — chronological record of changes (newest first). Archived in chunks once it
+  passes 500 lines (see its header).
+- **ROADMAP.md** — planned/desired features and the claim convention (set Owner + branch before you
+  start) so collaborators don't duplicate work.
+- **archive/** — original design briefs/notes (historical; superseded by the live docs where they
+  conflict) plus archived `CHANGELOG-archive-NN.md` chunks.
+
+## Maintenance rules
+
+1. **Code change ⇒ doc change in the same pass.** New/renamed public symbol or file → update
+   MODULE_MAP; new behavior/quirk/dependency → update ARCHITECTURE; any of the above → add a
+   CHANGELOG entry (newest first).
+2. **Keep the agent docs terse and accurate.** They exist to save reading the whole project; stale
+   entries are worse than none. Prefer fixing an existing line over appending duplicates.
+3. **Don't edit archived documents** — they are a historical snapshot. Capture corrections in the
+   live docs.
+4. **USER_MANUAL is the domain source of truth**; ARCHITECTURE/MODULE_MAP are the code source of truth.
+5. **CHANGELOG stays under 500 lines** — archive older entries per its header rule (move, never delete).
+6. **Claim roadmap items before starting** (Owner + branch in ROADMAP.md, committed first) and retire
+   them to CHANGELOG when shipped.
