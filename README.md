@@ -57,7 +57,7 @@ docs-system solves both halves of the problem:
 | `/docs-check` | Staleness audit: MODULE_MAP vs actual public symbols, CHANGELOG vs recent git history, roadmap claim hygiene, CLAUDE.md drift. Reports findings; fixes only when asked. |
 | `/docs-archive` | When the changelog passes 500 lines, cut the oldest entries into `DOCS/archive/CHANGELOG-archive-NN.md` as a standalone commit. |
 
-## The six rules the system enforces
+## The seven rules the system enforces
 
 1. **Code change ⇒ doc change in the same pass** — public symbol changes update MODULE_MAP, behavior
    changes update ARCHITECTURE, and either gets a CHANGELOG entry.
@@ -67,6 +67,9 @@ docs-system solves both halves of the problem:
 5. **CHANGELOG stays under 500 lines** — history is moved to archive chunks, never deleted.
 6. **Claim roadmap items before starting** — Owner + branch, committed and pushed first, so two
    people (or two agents) never build the same thing twice.
+7. **He who creates a branch shall also destroy it** — when its work is finished (merged into main
+   and pushed), the branch's creator deletes it on every remote and locally (`git branch -d`, never
+   `-D`) and removes its worktree. Never delete a branch someone else created.
 
 ## FAQ
 

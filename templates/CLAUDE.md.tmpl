@@ -31,6 +31,10 @@ Gitignored / per-machine (each clone recreates): {{PER_MACHINE_ITEMS}}
 - **Remote:** {{REMOTE_INFO}}
 - **Claim work in `DOCS/ROADMAP.md`** before starting an item (set Owner + branch, commit that first)
   so collaborators see it. Prefer feature branches; pull before you push.
+- **He who creates a branch shall also destroy it.** When a branch's work is finished (merged into
+  main and pushed), its creator deletes it on every remote and locally (`git push <remote> --delete
+  <b>`, `git branch -d <b>` — never `-D`) and removes any worktree on it. Never delete a branch you
+  did not create; ask its creator.
 - **Code change ⇒ doc change in the same commit:** new/renamed public symbol or file →
   `MODULE_MAP.md`; new behavior/quirk/dependency → `ARCHITECTURE.md`; any of the above → a
   `CHANGELOG.md` entry (newest first).

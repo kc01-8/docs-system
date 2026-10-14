@@ -42,3 +42,6 @@ date** — when you change behavior, APIs, files, or known issues, update the re
 5. **CHANGELOG stays under 500 lines** — archive older entries per its header rule (move, never delete).
 6. **Claim roadmap items before starting** (Owner + branch in ROADMAP.md, committed first) and retire
    them to CHANGELOG when shipped.
+7. **He who creates a branch shall also destroy it.** When its work is finished (merged into main
+   and pushed), the branch's creator deletes it on every remote and locally (`git branch -d`, never
+   `-D`) and removes its worktree. Never delete a branch someone else created.

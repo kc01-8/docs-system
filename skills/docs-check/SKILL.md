@@ -34,6 +34,9 @@ Run these checks, collecting findings as you go:
   flag for release back to 🔲.
 - ✅ items: should have moved to CHANGELOG — flag lingerers.
 - Shipped features still listed as 🔲 (cross-check CHANGELOG).
+- **Finished branches still standing** — `git fetch --prune` then `git branch -r --merged origin/main`
+  and `git branch --merged main`: each merged branch other than main breaks rule 7 (he who creates a
+  branch shall also destroy it). Report each with its creator; only the creator deletes it.
 
 ## 5. CLAUDE.md drift
 - Build/run/test block still matches ARCHITECTURE §8.
