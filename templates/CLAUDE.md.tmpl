@@ -34,7 +34,8 @@ Gitignored / per-machine (each clone recreates): {{PER_MACHINE_ITEMS}}
 - **He who creates a branch shall also destroy it.** When a branch's work is finished (merged into
   main and pushed), its creator deletes it on every remote and locally (`git push <remote> --delete
   <b>`, `git branch -d <b>` — never `-D`) and removes any worktree on it. Never delete a branch you
-  did not create; ask its creator.
+  did not create; ask its creator. If auto mode refuses Claude's delete, Claude hands the user the
+  exact command to run at the prompt with a leading `!` rather than leaving the branch standing.
 - **Code change ⇒ doc change in the same commit:** new/renamed public symbol or file →
   `MODULE_MAP.md`; new behavior/quirk/dependency → `ARCHITECTURE.md`; any of the above → a
   `CHANGELOG.md` entry (newest first).

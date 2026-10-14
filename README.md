@@ -70,6 +70,9 @@ docs-system solves both halves of the problem:
 7. **He who creates a branch shall also destroy it** — when its work is finished (merged into main
    and pushed), the branch's creator deletes it on every remote and locally (`git branch -d`, never
    `-D`) and removes its worktree. Never delete a branch someone else created.
+   *If Claude's delete is refused* (Claude Code's auto mode may block a remote branch delete as
+   destructive, even with allow rules for it), run the same command yourself at the prompt with a
+   leading `!`, e.g. `! git push origin --delete <b>`.
 
 ## FAQ
 
